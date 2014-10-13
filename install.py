@@ -33,11 +33,17 @@ print "Now open your browser at:\n\n ", token.generate_authorize_url(), "\n\n an
 code = raw_input("What's the code?").strip()
 token.get_access_token(code)
 
+os.system("clear")
+spreadsheet = raw_input("what is the key of the spreadsheet you would like to write to?")
+worksheet = raw_input("what is the worksheet you would like to write to? [od6]") or "od6"
+
 Config.add_section("gdata")
 Config.set("gdata", "client_id", client_id)
 Config.set("gdata", "client_secret", client_secret)
 Config.set("gdata", "access_token", token.access_token)
 Config.set("gdata", "refresh_token", token.refresh_token)
+Config.set("gdata", "worksheet", worksheet)
+Config.set("gdata", "spreadsheet", spreadsheet)
 Config.write(cfg_file)
 
 os.system("clear")

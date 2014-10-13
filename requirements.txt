@@ -1,2 +1,4 @@
 gdata==2.0.18
+requests==2.4.3
+simplejson==3.6.4
 wsgiref==0.1.2
